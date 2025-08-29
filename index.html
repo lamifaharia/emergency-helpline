@@ -271,3 +271,21 @@
     const copiesCount = document.getElementById('copies-count');   
     const historyList = document.getElementById('history-list');   
     const clearHistoryBtn = document.getElementById('clear-history'); 
+
+     // ------------------ counts ------------------
+
+
+    function updateCounts() {
+      likesCount.innerHTML = `${likes} <img src="B12-A5-Emergency-Hotline/assets/heart.png" alt="Heart" class="ml-1 w-4 h-4 inline">`;
+      coinsCount.innerHTML = `${coins} <img src="B12-A5-Emergency-Hotline/assets/coin.png" alt="Coin" class="ml-1 w-4 h-4 inline">`;
+      copiesCount.innerHTML = `${copies} Copy`;
+    }
+  
+    likesCount.addEventListener('click', () => {
+      likes++;
+      updateCounts();
+      likesCount.classList.add('scale-110');   
+      setTimeout(() => {
+        likesCount.classList.remove('scale-110'); 
+      }, 150);
+    });
