@@ -258,3 +258,16 @@
       <div id="history-list" class="space-y-2 text-xs sm:text-sm"></div>
     </div>
   </main>
+
+  <script>
+    // ------------------ variables and dom elements ------------------
+    let likes = 0;       
+    let coins = 100;     
+    let copies = 0;      
+    let history = [];    
+
+    const likesCount = document.getElementById('likes-count');     
+    const coinsCount = document.getElementById('coins-count');     
+    const copiesCount = document.getElementById('copies-count');   
+    const historyList = document.getElementById('history-list');   
+    const clearHistoryBtn = document.getElementById('clear-history'); 
