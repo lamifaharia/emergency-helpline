@@ -305,3 +305,68 @@
         historyList.appendChild(div);
       });
     }
+
+        // ------------------ HEART BUTTONS ------------------
+    
+    document.querySelectorAll('.heart-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        likes++;
+        updateCounts();
+      });
+    });
+
+    // ------------------ CALL BUTTONS ------------------
+    
+    document.querySelectorAll('.call-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.name;     
+        const number = btn.dataset.number; 
+
+        // Check if enough coins available
+        if (coins < 20) {
+          alert('Insufficient coins to make a call.');
+          return;
+        }
+
+        
+        coins -= 20;
+
+        // Show calling alert
+        alert(`Calling ${name} at ${number}`);
+
+        
+        const time = new Date().toLocaleTimeString();
+        history.push({ name, number, time });
+
+        
+        renderHistory();
+        updateCounts();
+      });
+    });
+
+    // ------------------ COPY BUTTONS ------------------
+    
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const number = btn.dataset.number; 
+
+        // Copy number to clipboard
+        navigator.clipboard.writeText(number).then(() => {
+          copies++;   
+          alert(`Copied ${number} to clipboard`);
+          updateCounts();
+        });
+      });
+    });
+
+    // ------------------ CLEAR HISTORY BUTTON ------------------
+    clearHistoryBtn.addEventListener('click', () => {
+      history = [];    
+      renderHistory();  
+    });
+
+   
+    updateCounts();  
+</script>
+</body>
+</html>
